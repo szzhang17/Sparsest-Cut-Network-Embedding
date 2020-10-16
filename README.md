@@ -6,7 +6,7 @@ Code for the KDD 2020 paper "[SCE: Scalable Network Embedding from Sparsest Cut]
 * python == 3.7
 * Pytorch == 1.1.0  
 * numpy == 1.17.2
-* scikit-lear n== 0.19.1
+* scikit-learn== 0.19.1
 
 ## Cite
 
