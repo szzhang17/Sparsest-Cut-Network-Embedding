@@ -1,9 +1,9 @@
 import numpy as np
 
-fout = open('data/cora_full_labels.txt', 'r')
+fout = open('data/citeseer_labels.txt', 'r')
 label_file = fout.readlines()
 
-np.random.seed(123)
+#np.random.seed(123)
 label_dict = {}
 for line in label_file:
     if line.strip('\n'):
@@ -25,9 +25,9 @@ for i in range(50):
     idx_val = []
     idx_test = []
     for j in label_dict:
-        if len(label_dict[j]) > 50:
-            train = list(np.random.choice(label_dict[j], size=20, replace=False))
-            val = list(np.random.choice(list(set(label_dict[j]) - set(train)), size=20, replace=False))
+        if len(label_dict[j]) > 20:
+            train = list(np.random.choice(label_dict[j], size=5, replace=False))
+            val = list(np.random.choice(list(set(label_dict[j]) - set(train)), size=5, replace=False))
             test = list(set(label_dict[j]) - set(train) - set(val))
         else:
             train = list(np.random.choice(label_dict[j], size=int(len(label_dict[j]) * 0.5), replace=False))
