@@ -6,6 +6,7 @@ class Net(torch.nn.Module):
     def __init__(self, args):
         super(Net, self).__init__()
 
+        #self.conv0 = mlp(input_dim=args.num_features, output_dim=args.output)
         self.conv1 = mlp(input_dim=args.num_features, output_dim=args.output)
         self.conv2 = mlp(input_dim=args.num_features, output_dim=args.nhid)
         self.conv3 = mlp(input_dim=args.nhid, output_dim=args.output)
