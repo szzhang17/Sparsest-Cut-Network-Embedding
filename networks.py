@@ -14,7 +14,7 @@ class Net(torch.nn.Module):
 
     def forward(self, F_1, F_2):
 
-        z_1 =self.conv1(F_1)
+        z_1 = self.conv1(F_1)
         z_2 = self.conv3(self.conv2(F_2))
         z = (z_1+z_2)/2
 
