@@ -1,5 +1,5 @@
 # Sparsest-Cut-Network-Embedding
-Code for the KDD 2020 paper "[SCE: Scalable Network Embedding from Sparsest Cut](https://arxiv.org/abs/2006.16499)".  Note: splits are randomized and results might slightly deviate from reported numbers in the paper.
+Code for the KDD 2020 paper "[SCE: Scalable Network Embedding from Sparsest Cut](https://arxiv.org/abs/2006.16499)".
 
 
 ## Requirements
