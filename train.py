@@ -1,3 +1,4 @@
+# NOTE: Splits are randomized and results might slightly deviate from reported numbers in the paper.
 import torch
 from utils import load_adj_neg, load_dataset
 from networks import Net
