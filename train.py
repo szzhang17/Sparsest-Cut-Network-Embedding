@@ -57,6 +57,7 @@ for epoch in range(args.epochs):
     loss.backward()
     optimizer.step()
 
+model.eval()
 emb = model(F_1, F_2).cpu().detach().numpy()
 np.save('embedding.npy', emb)
 classify(emb, args.dataset, per_class='20')
