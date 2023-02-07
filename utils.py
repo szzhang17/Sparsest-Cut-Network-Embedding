@@ -23,19 +23,7 @@ def normalize_adj(adj):
 
 
 def load_adj_neg(num_nodes, sample):
-    '''
-    adj_neg = np.zeros((num_nodes, num_nodes), dtype=float)
-    l = np.random.randint(0, num_nodes, size=num_nodes * (sample + 1))
-    t = 0
-    for i in range(num_nodes):
-        s = 0
-        adj_neg[i, i] = sample
-        while s < sample:
-            if i != l[t]:
-                adj_neg[i, l[t]] = -1
-                s += 1
-            t += 1
-    '''
+
     row = np.repeat(range(num_nodes), sample)
     col = np.random.randint(0, num_nodes, size=num_nodes * sample)
     new_col = np.concatenate((col, row), axis=0)
