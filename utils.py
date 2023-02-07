@@ -36,11 +36,14 @@ def load_adj_neg(num_nodes, sample):
                 s += 1
             t += 1
     '''
-    col = np.random.randint(0, num_nodes, size=num_nodes * sample)
     row = np.repeat(range(num_nodes), sample)
-    data = np.ones(num_nodes * sample)
-    adj_neg = sp.coo_matrix((data, (row, col)), shape=(num_nodes, num_nodes))
-    adj_neg = (sp.eye(adj_neg.shape[0]) * sample - adj_neg).toarray()
+    col = np.random.randint(0, num_nodes, size=num_nodes * sample)
+    new_col = np.concatenate((col, row), axis=0)
+    new_row = np.concatenate((row, col), axis=0)
+    data = np.ones(new_col.shape[0])
+    adj_neg = sp.coo_matrix((data, (new_row, new_col)), shape=(num_nodes, num_nodes))
+    adj = np.array(adj_neg.sum(1)).flatten()
+    adj_neg = sp.diags(adj) - adj_neg
 
     return adj_neg
 
