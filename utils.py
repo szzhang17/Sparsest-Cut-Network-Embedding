@@ -45,7 +45,7 @@ def load_symmetric_adj_neg(num_nodes, sample):
     adj = np.array(adj_neg.sum(1)).flatten()
     adj_neg = sp.diags(adj) - adj_neg
 
-    return adj_neg
+    return adj_neg.toarray()
 
 
 
