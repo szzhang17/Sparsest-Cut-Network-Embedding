@@ -22,7 +22,19 @@ def normalize_adj(adj):
     return d_mat_inv_sqrt.dot(adj)
 
 
+
 def load_adj_neg(num_nodes, sample):
+
+    row = np.repeat(range(num_nodes), sample)
+    col = np.random.randint(0, num_nodes, size=num_nodes * sample)
+    data = np.ones(num_nodes * sample)
+    adj_neg = sp.coo_matrix((data, (row, col)), shape=(num_nodes, num_nodes))
+    adj_neg = (sp.eye(adj_neg.shape[0]) * sample - adj_neg).toarray()
+
+    return adj_neg
+
+
+def load_symmetric_adj_neg(num_nodes, sample):
 
     row = np.repeat(range(num_nodes), sample)
     col = np.random.randint(0, num_nodes, size=num_nodes * sample)
